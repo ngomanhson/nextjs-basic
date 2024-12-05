@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Container from "react-bootstrap/Container";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -26,9 +29,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${geistSans.variable} ${geistMono.variable}`}>
-                <header>Header</header>
-                {children}
-                <footer>Footer</footer>
+                <Header />
+                <Container>{children}</Container>
+                <Footer />
             </body>
         </html>
     );
