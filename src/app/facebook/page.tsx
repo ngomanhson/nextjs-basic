@@ -1,12 +1,19 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const Facebook = () => {
     const [count, setCount] = React.useState(0);
 
+    const router = useRouter();
+
     const handleClickBtn = () => {
         setCount(count + 1);
+    };
+
+    const handleClickGoHome = () => {
+        router.push("/");
     };
 
     return (
@@ -18,10 +25,18 @@ const Facebook = () => {
                     handleClickBtn();
                 }}
             >
-                Back to Home
+                Click me
             </button>
 
             <p>Count: {count}</p>
+
+            <button
+                onClick={() => {
+                    handleClickGoHome();
+                }}
+            >
+                Go to Home
+            </button>
         </div>
     );
 };
