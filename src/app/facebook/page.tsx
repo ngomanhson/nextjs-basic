@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import React from "react";
+import { Button } from "react-bootstrap";
 
 const Facebook = () => {
     const [count, setCount] = React.useState(0);
@@ -27,6 +28,8 @@ const Facebook = () => {
             >
                 Click me
             </button>
+
+            <Button variant="success">Primary</Button>
 
             <p>Count: {count}</p>
 
