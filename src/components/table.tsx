@@ -1,25 +1,41 @@
 "use client";
 
+import { Button } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 
-const TableComp = ({ data }) => {
+interface IProps {
+    blogs: IBlog[];
+}
+
+const TableComp = (props: IProps) => {
+    const { blogs } = props;
+
+    console.log("====================================");
+    console.log("blogs", blogs);
+    console.log("====================================");
+
     return (
         <Table striped bordered hover>
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
+                    <th>No</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                {data.map((item) => (
-                    <tr key={item.id}>
-                        <td>{item.id}</td>
-                        <td>{item.title}</td>
-                        <td>{item.author}</td>
-                        <td>{item.content}</td>
+                {blogs?.map((blog) => (
+                    <tr key={blog.id}>
+                        <td>{blog.id}</td>
+                        <td>{blog.title}</td>
+                        <td>{blog.author}</td>
+                        <td>
+                            <Button variant="success" className="me-3">
+                                Edit
+                            </Button>
+                            <Button variant="danger">Delete</Button>
+                        </td>
                     </tr>
                 ))}
             </tbody>

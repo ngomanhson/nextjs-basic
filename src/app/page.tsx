@@ -17,6 +17,10 @@ export default function Home() {
 
     console.log("data", data);
 
+    if (!data) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <div>
             <div>{data?.length}</div>
@@ -36,7 +40,7 @@ export default function Home() {
                 </li>
             </ul>
 
-            {/* <TableComp data={blog} /> */}
+            <TableComp blogs={data} />
         </div>
     );
 }
