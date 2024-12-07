@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
+
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
@@ -32,6 +36,7 @@ export default function RootLayout({
                 <Header />
                 <Container>{children}</Container>
                 <Footer />
+                <ToastContainer />
             </body>
         </html>
     );

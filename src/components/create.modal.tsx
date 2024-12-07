@@ -5,6 +5,8 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 
+import { toast } from "react-toastify";
+
 interface IProps {
     showModalCreate: boolean;
     setShowModalCreate: (value: boolean) => void;
@@ -18,6 +20,15 @@ function CreateModal(props: IProps) {
     const [content, setContent] = useState<string>("");
 
     const handleSubmit = () => {
+        fetch("http://localhost:8000/blogs", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ title, author, content }) })
+            .then((res) => res.json())
+            .then((res) => {
+                if (res) {
+                    toast.success("Create blog successfully");
+                    handleCloseModal();
+                }
+            });
+
         console.log({ title, author, content });
     };
 
